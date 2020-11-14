@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
     tools:context=".Tab3Fragment">
 
 
@@ -18,7 +19,6 @@
         android:layout_height="500dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:background="@android:color/darker_gray"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="0dp">
@@ -26,39 +26,28 @@
 
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/imageView1"
             android:layout_width="158dp"
             android:layout_height="113dp"
             android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
             app:srcCompat="@drawable/jadwalwaktu" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginBottom="50dp"
             android:gravity="center_vertical"
             android:layout_gravity="center"
-            android:text="Jadwal Waktu"
+            android:text="@string/room_behaviour"
             android:textColor="@android:color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
 
 
         //Atas Kosong
-        <LinearLayout
-            android:layout_width="80dp"
-            android:layout_height="53dp"
-            android:layout_gravity="left"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/buttonback3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Back" />
-
-        </LinearLayout>
 
 
         //Temperature
@@ -69,8 +58,7 @@
             android:background="@android:color/holo_green_dark"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="117dp">
+            android:layout_marginBottom="30dp">
 
             <android.support.v7.widget.CardView
                 android:id="@+id/bankcardId3"
@@ -98,7 +86,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
-                        android:text="Lampu"
+                        android:text="@string/lamp_1"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -120,117 +108,6 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/holo_green_light"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="350dp"
-                android:layout_height="51dp"
-                android:layout_margin="5dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/holo_green_light"
-                    android:orientation="horizontal">
-
-
-                    <TextView
-                        android:id="@+id/textView27"
-                        android:layout_width="115dp"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="Rentang Waktu"
-                        android:textColor="@android:color/white"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/chooseTime"
-                        android:layout_width="83dp"
-                        android:layout_height="wrap_content"
-                        android:background="@android:color/white"
-                        android:ems="10"
-                        android:inputType="time" />
-
-
-                    <TextView
-                        android:id="@+id/textView28"
-                        android:layout_width="34dp"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="-"
-                        android:textColor="@android:color/white"
-                        android:textSize="25sp"
-                        android:textStyle="bold" />
-
-
-                    <EditText
-                        android:id="@+id/chooseTime2"
-                        android:layout_width="83dp"
-                        android:layout_height="wrap_content"
-                        android:background="@android:color/white"
-                        android:ems="10"
-                        android:inputType="time" />
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/holo_green_light"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="350dp"
-                android:layout_height="51dp"
-                android:layout_margin="5dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/holo_green_light"
-                    android:orientation="horizontal">
-
-
-                    <TextView
-                        android:id="@+id/textView22"
-                        android:layout_width="169dp"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="Nilai Arus (A)"
-                        android:textColor="@android:color/white"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textView23"
-                        android:layout_width="80dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="55dp"
-                        android:gravity="right|center"
-                        android:text="0"
-                        android:textSize="15sp" />
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
             android:layout_height="25dp"
             android:orientation="horizontal"></LinearLayout>
 
@@ -243,6 +120,8 @@
             android:background="@android:color/holo_green_dark"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
+
+            android:layout_marginBottom="10dp"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="43dp">
 
@@ -264,14 +143,14 @@
                         android:layout_width="68dp"
                         android:layout_height="39dp"
                         android:layout_gravity="center_vertical"
-                        app:srcCompat="@drawable/kipas" />
+                        app:srcCompat="@drawable/lampu" />
 
                     <TextView
                         android:id="@+id/textView24"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
-                        android:text="Kipas Angin"
+                        android:text="@string/lamp_2"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -280,121 +159,10 @@
                         android:id="@+id/toggleButton8"
                         android:layout_width="80dp"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="80dp"
+                        android:layout_marginStart="125dp"
                         android:gravity="center"
                         android:text="ToggleButton" />
 
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/holo_green_light"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="350dp"
-                android:layout_height="51dp"
-                android:layout_margin="5dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/holo_green_light"
-                    android:orientation="horizontal">
-
-
-                    <TextView
-                        android:id="@+id/textView29"
-                        android:layout_width="115dp"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="Rentang Waktu"
-                        android:textColor="@android:color/white"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/chooseTime3"
-                        android:layout_width="83dp"
-                        android:layout_height="wrap_content"
-                        android:background="@android:color/white"
-                        android:ems="10"
-                        android:inputType="time" />
-
-
-                    <TextView
-                        android:id="@+id/textView30"
-                        android:layout_width="34dp"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="-"
-                        android:textColor="@android:color/white"
-                        android:textSize="25sp"
-                        android:textStyle="bold" />
-
-
-                    <EditText
-                        android:id="@+id/chooseTime4"
-                        android:layout_width="83dp"
-                        android:layout_height="wrap_content"
-                        android:background="@android:color/white"
-                        android:ems="10"
-                        android:inputType="time" />
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/holo_green_light"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="350dp"
-                android:layout_height="51dp"
-                android:layout_margin="5dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/holo_green_light"
-                    android:orientation="horizontal">
-
-
-                    <TextView
-                        android:id="@+id/textView25"
-                        android:layout_width="169dp"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="Nilai Arus (A)"
-                        android:textColor="@android:color/white"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textView26"
-                        android:layout_width="80dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="55dp"
-                        android:gravity="right|center"
-                        android:text="0"
-                        android:textSize="15sp" />
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
@@ -404,6 +172,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
+            android:layout_marginBottom="30dp"
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal">
 
@@ -414,34 +184,24 @@
                 android:layout_weight="1"
                 android:text="Get Data" />
 
-            <ToggleButton
-                android:id="@+id/toggleButton9"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="80dp"
-                android:checked="false"
-                android:gravity="center"
-                android:text="ToggleButton"
-                android:textOff="No Data"
-                android:textOn="Send Data" />
-
         </LinearLayout>
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_width="80dp"
+            android:layout_height="53dp"
+            android:layout_gravity="end"
+            android:layout_marginRight="50dp"
             android:orientation="horizontal">
 
+            <Button
+                android:id="@+id/buttonback2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Back" />
 
         </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:orientation="horizontal"></LinearLayout>
 
 
 

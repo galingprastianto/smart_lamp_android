@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
     tools:context=".Tab1Fragment">
 
 
@@ -16,11 +17,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="560dp"
-        android:background="@android:color/darker_gray"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="0dp">
+        tools:layout_editor_absoluteX="0dp"
+        android:weightSum="1">
 
 
         <ImageView
@@ -28,50 +29,34 @@
             android:layout_width="158dp"
             android:layout_height="113dp"
             android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
             app:srcCompat="@drawable/remote" />
 
+
+        //Atas Kosong
+
+        //Temperature
+
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
             android:layout_gravity="center"
+            android:layout_marginBottom="50dp"
+            android:gravity="center_vertical"
             android:text="Remote Control"
             android:textColor="@android:color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
 
-
-        //Atas Kosong
-
-        <LinearLayout
-            android:layout_width="80dp"
-            android:layout_height="53dp"
-            android:layout_gravity="left"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/buttonback1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Back" />
-
-        </LinearLayout>
-
-
-
-
-        //Temperature
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
             android:background="@android:color/holo_red_dark"
             android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="117dp">
+            android:orientation="horizontal">
 
             <android.support.v7.widget.CardView
                 android:id="@+id/bankcardId"
@@ -100,7 +85,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
-                        android:text="Lampu"
+                        android:text="@string/lamp_1"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -121,51 +106,6 @@
 
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:background="@android:color/holo_red_light"
-            android:orientation="horizontal">
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="350dp"
-                android:layout_height="51dp"
-                android:layout_margin="5dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:background="@android:color/holo_red_light">
-
-
-
-                    <TextView
-                        android:id="@+id/textView13"
-                        android:layout_width="169dp"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="Nilai Arus (A)"
-                        android:textColor="@android:color/white"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textView14"
-                        android:layout_width="80dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="55dp"
-                        android:gravity="right|center"
-                        android:text="0"
-                        android:textSize="15sp" />
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-        </LinearLayout>
 
 
 
@@ -183,6 +123,7 @@
             android:background="@android:color/holo_red_dark"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="43dp">
 
@@ -204,14 +145,14 @@
                         android:layout_width="68dp"
                         android:layout_height="39dp"
                         android:layout_gravity="center_vertical"
-                        app:srcCompat="@drawable/kipas" />
+                        app:srcCompat="@drawable/lampu" />
 
                     <TextView
                         android:id="@+id/textView2"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
-                        android:text="Kipas Angin"
+                        android:text="@string/lamp_2"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -220,7 +161,7 @@
                         android:id="@+id/toggleButton6"
                         android:layout_width="80dp"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="80dp"
+                        android:layout_marginLeft="125dp"
                         android:gravity="center"
                         android:text="ToggleButton" />
 
@@ -230,51 +171,51 @@
         </LinearLayout>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:background="@android:color/holo_red_light"
-            android:orientation="horizontal">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:background="@android:color/holo_red_light"-->
+<!--            android:orientation="horizontal">-->
 
 
-            <android.support.v7.widget.CardView
-                android:layout_width="350dp"
-                android:layout_height="51dp"
-                android:layout_margin="5dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+<!--            <android.support.v7.widget.CardView-->
+<!--                android:layout_width="350dp"-->
+<!--                android:layout_height="51dp"-->
+<!--                android:layout_margin="5dp"-->
+<!--                android:clickable="true"-->
+<!--                android:foreground="?android:attr/selectableItemBackground">-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:background="@android:color/holo_red_light">
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:background="@android:color/holo_red_light">-->
 
 
 
-                    <TextView
-                        android:id="@+id/textView15"
-                        android:layout_width="169dp"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="Nilai Arus (A)"
-                        android:textColor="@android:color/white"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/textView15"-->
+<!--                        android:layout_width="169dp"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:gravity="center_vertical"-->
+<!--                        android:text="Nilai Arus (A)"-->
+<!--                        android:textColor="@android:color/white"-->
+<!--                        android:textSize="15sp"-->
+<!--                        android:textStyle="bold" />-->
 
-                    <TextView
-                        android:id="@+id/textView16"
-                        android:layout_width="80dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="55dp"
-                        android:gravity="right|center"
-                        android:text="0"
-                        android:textSize="15sp" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/textView16"-->
+<!--                        android:layout_width="80dp"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_marginLeft="55dp"-->
+<!--                        android:gravity="right|center"-->
+<!--                        android:text="0"-->
+<!--                        android:textSize="15sp" />-->
 
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-        </LinearLayout>
+<!--                </LinearLayout>-->
+<!--            </android.support.v7.widget.CardView>-->
+<!--        </LinearLayout>-->
 
 
         //button
@@ -282,6 +223,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="30dp"
             android:orientation="horizontal">
 
             <Button
@@ -294,11 +236,21 @@
 
         </LinearLayout>
 
-
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:orientation="horizontal"></LinearLayout>
+            android:layout_width="80dp"
+            android:layout_height="53dp"
+            android:layout_gravity="end"
+            android:layout_marginRight="50dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonback1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Back" />
+
+        </LinearLayout>
 
 
     </LinearLayout>

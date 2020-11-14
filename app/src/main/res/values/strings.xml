@@ -3,4 +3,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="kebiaasaan_ruangan_title">Kebiasaan Ruangan</string>
+    <string name="lamp_1">Lampu 1</string>
+    <string name="lamp_2">Lampu 2</string>
+    <string name="room_behaviour">Kebiasaan Ruangan</string>
 </resources>

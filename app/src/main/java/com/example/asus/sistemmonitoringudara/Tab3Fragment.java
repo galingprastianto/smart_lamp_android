@@ -128,7 +128,7 @@ public class Tab3Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab3_fragment,container,false);
 
-        Button buttonback3 = (Button)view.findViewById(R.id.buttonback3);
+        Button buttonback3 = (Button)view.findViewById(R.id.buttonback2);
 
         button3 = (Button) view.findViewById(R.id.button3);
 
@@ -142,15 +142,15 @@ public class Tab3Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
 
         toggleButton7 = (ToggleButton) view.findViewById(R.id.toggleButton7);
         toggleButton8 = (ToggleButton) view.findViewById(R.id.toggleButton8);
-        toggleButton9 = (ToggleButton) view.findViewById(R.id.toggleButton9);
-
-        textView23 = (TextView) view.findViewById(R.id.textView23);
-        textView26 = (TextView) view.findViewById(R.id.textView26);
-
-        chooseTime = view.findViewById(R.id.chooseTime);
-        chooseTime2 = view.findViewById(R.id.chooseTime2);
-        chooseTime3 = view.findViewById(R.id.chooseTime3);
-        chooseTime4 = view.findViewById(R.id.chooseTime4);
+//        toggleButton9 = (ToggleButton) view.findViewById(R.id.toggleButton9);
+//
+//        textView23 = (TextView) view.findViewById(R.id.textView23);
+//        textView26 = (TextView) view.findViewById(R.id.textView26);
+//
+//        chooseTime = view.findViewById(R.id.chooseTime);
+//        chooseTime2 = view.findViewById(R.id.chooseTime2);
+//        chooseTime3 = view.findViewById(R.id.chooseTime3);
+//        chooseTime4 = view.findViewById(R.id.chooseTime4);
 
         TAGG = this.getClass().getSimpleName();
 
@@ -160,11 +160,11 @@ public class Tab3Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
         loadSavedPreferences5();
         loadSavedPreferences6();
 
-        loadSavedPreferences7();
-        loadSavedPreferences8();
+//        loadSavedPreferences7();
+//        loadSavedPreferences8();
 
-        loadSavedPreferences9();
-        loadSavedPreferences10();
+//        loadSavedPreferences9();
+//        loadSavedPreferences10();
 
 
 
@@ -239,34 +239,34 @@ public class Tab3Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
         });
 
 
-        toggleButton9.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-
-                    new Timer().scheduleAtFixedRate(new TimerTask() {
-                        @Override
-                        public void run() {
-                            calendar = Calendar.getInstance();
-                            currentHour = calendar.get(Calendar.HOUR_OF_DAY);
-                            currentMinute = calendar.get(Calendar.MINUTE);
-                            antaresHTTPAPI.storeDataofDevice(35, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "HourPhone", String.valueOf(currentHour));
-                            antaresHTTPAPI.storeDataofDevice(36, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "MinutePhone", String.valueOf(currentMinute));
-                        }
-                    }, 0, 60000);
-
-                    //antaresHTTPAPI.getLatestDataofDevice(22, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu"); // The toggle is enabled
-
-
-
-                } else {
-
-
-                    //    antaresHTTPAPI.storeDataofDevice(36, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "RCJadwalWaktu", "17");// The toggle is disabled
-                }
-                //savePreferences6("CheckBox_Value6", toggleButton8.isChecked());
-            }
-        });
+//        toggleButton9.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if (isChecked) {
+//
+//                    new Timer().scheduleAtFixedRate(new TimerTask() {
+//                        @Override
+//                        public void run() {
+//                            calendar = Calendar.getInstance();
+//                            currentHour = calendar.get(Calendar.HOUR_OF_DAY);
+//                            currentMinute = calendar.get(Calendar.MINUTE);
+//                            antaresHTTPAPI.storeDataofDevice(35, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "HourPhone", String.valueOf(currentHour));
+//                            antaresHTTPAPI.storeDataofDevice(36, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "MinutePhone", String.valueOf(currentMinute));
+//                        }
+//                    }, 0, 60000);
+//
+//                    //antaresHTTPAPI.getLatestDataofDevice(22, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu"); // The toggle is enabled
+//
+//
+//
+//                } else {
+//
+//
+//                    //    antaresHTTPAPI.storeDataofDevice(36, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "RCJadwalWaktu", "17");// The toggle is disabled
+//                }
+//                //savePreferences6("CheckBox_Value6", toggleButton8.isChecked());
+//            }
+//        });
 
 /*
         button2.setOnClickListener(new View.OnClickListener() {
@@ -309,142 +309,142 @@ public class Tab3Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
         //             .getDefaultSharedPreferences(getActivity());
         //      chooseTime.setText(sharedPreferences.getString("autosave",null)(String.format("%02d:%02d", hourOfDay, minutes) ));
 
-        chooseTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calendar = Calendar.getInstance();
-                currentHour = calendar.get(Calendar.HOUR_OF_DAY);
-                currentMinute = calendar.get(Calendar.MINUTE);
-
-                timePickerDialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
-                        // if (hourOfDay >= 12) {
-                        //     amPm = "PM";
-                        // } else {
-                        //     amPm = "AM";
-                        // }
-                        // chooseTime.setText (String.format("%02d:%02d", hourOfDay, minutes) );
-                        //     final SharedPreferences sharedPreferences = PreferenceManager
-                        //             .getDefaultSharedPreferences(getActivity());
-
-                        chooseTime.setText(String.format("%02d:%02d", hourOfDay, minutes) );
-                        savePreferences7("storedName", chooseTime.getText().toString());
-
-                        antaresHTTPAPI.storeDataofDevice(24, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu", String.valueOf(hourOfDay));
-                        antaresHTTPAPI.storeDataofDevice(25, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu2", String.valueOf(minutes));
-
-                    }
-
-                }, currentHour, currentMinute, false);
-
-                timePickerDialog.show();
-                // savePreferences("storedName", chooseTime.getText().toString());
-                //  waktu = Integer.toString(chooseTime);
-                //waktu2 = new Integer(currentMinute).toString();
-            }
-        });
-
-
-        chooseTime2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calendar = Calendar.getInstance();
-                currentHour = calendar.get(Calendar.HOUR_OF_DAY);
-                currentMinute = calendar.get(Calendar.MINUTE);
-
-                timePickerDialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
-                        // if (hourOfDay >= 12) {
-                        //     amPm = "PM";
-                        // } else {
-                        //     amPm = "AM";
-                        // }
-                        chooseTime2.setText(String.format("%02d:%02d", hourOfDay, minutes) );
-                        savePreferences8("storedName2", chooseTime2.getText().toString());
-
-                        antaresHTTPAPI.storeDataofDevice(26, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu3", String.valueOf(hourOfDay));
-                        antaresHTTPAPI.storeDataofDevice(27, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu4", String.valueOf(minutes));
-
-                    }
-
-                }, currentHour, currentMinute, false);
-
-                timePickerDialog.show();
-                // savePreferences("storedName", chooseTime.getText().toString());
-                //  waktu = Integer.toString(chooseTime);
-                //waktu2 = new Integer(currentMinute).toString();
-            }
-        });
+//        chooseTime.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                calendar = Calendar.getInstance();
+//                currentHour = calendar.get(Calendar.HOUR_OF_DAY);
+//                currentMinute = calendar.get(Calendar.MINUTE);
+//
+//                timePickerDialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
+//                    @Override
+//                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
+//                        // if (hourOfDay >= 12) {
+//                        //     amPm = "PM";
+//                        // } else {
+//                        //     amPm = "AM";
+//                        // }
+//                        // chooseTime.setText (String.format("%02d:%02d", hourOfDay, minutes) );
+//                        //     final SharedPreferences sharedPreferences = PreferenceManager
+//                        //             .getDefaultSharedPreferences(getActivity());
+//
+//                        chooseTime.setText(String.format("%02d:%02d", hourOfDay, minutes) );
+//                        savePreferences7("storedName", chooseTime.getText().toString());
+//
+//                        antaresHTTPAPI.storeDataofDevice(24, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu", String.valueOf(hourOfDay));
+//                        antaresHTTPAPI.storeDataofDevice(25, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu2", String.valueOf(minutes));
+//
+//                    }
+//
+//                }, currentHour, currentMinute, false);
+//
+//                timePickerDialog.show();
+//                // savePreferences("storedName", chooseTime.getText().toString());
+//                //  waktu = Integer.toString(chooseTime);
+//                //waktu2 = new Integer(currentMinute).toString();
+//            }
+//        });
 
 
-
-        chooseTime3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calendar = Calendar.getInstance();
-                currentHour = calendar.get(Calendar.HOUR_OF_DAY);
-                currentMinute = calendar.get(Calendar.MINUTE);
-
-                timePickerDialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
-                        // if (hourOfDay >= 12) {
-                        //     amPm = "PM";
-                        // } else {
-                        //     amPm = "AM";
-                        // }
-                        chooseTime3.setText(String.format("%02d:%02d", hourOfDay, minutes) );
-                        savePreferences9("storedName3", chooseTime3.getText().toString());
-
-                        antaresHTTPAPI.storeDataofDevice(28, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu5", String.valueOf(hourOfDay));
-                        antaresHTTPAPI.storeDataofDevice(29, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu6", String.valueOf(minutes));
-
-                    }
-
-                }, currentHour, currentMinute, false);
-
-                timePickerDialog.show();
-                // savePreferences("storedName", chooseTime.getText().toString());
-                //  waktu = Integer.toString(chooseTime);
-                //waktu2 = new Integer(currentMinute).toString();
-            }
-        });
+//        chooseTime2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                calendar = Calendar.getInstance();
+//                currentHour = calendar.get(Calendar.HOUR_OF_DAY);
+//                currentMinute = calendar.get(Calendar.MINUTE);
+//
+//                timePickerDialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
+//                    @Override
+//                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
+//                        // if (hourOfDay >= 12) {
+//                        //     amPm = "PM";
+//                        // } else {
+//                        //     amPm = "AM";
+//                        // }
+//                        chooseTime2.setText(String.format("%02d:%02d", hourOfDay, minutes) );
+//                        savePreferences8("storedName2", chooseTime2.getText().toString());
+//
+//                        antaresHTTPAPI.storeDataofDevice(26, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu3", String.valueOf(hourOfDay));
+//                        antaresHTTPAPI.storeDataofDevice(27, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu4", String.valueOf(minutes));
+//
+//                    }
+//
+//                }, currentHour, currentMinute, false);
+//
+//                timePickerDialog.show();
+//                // savePreferences("storedName", chooseTime.getText().toString());
+//                //  waktu = Integer.toString(chooseTime);
+//                //waktu2 = new Integer(currentMinute).toString();
+//            }
+//        });
 
 
 
-        chooseTime4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calendar = Calendar.getInstance();
-                currentHour = calendar.get(Calendar.HOUR_OF_DAY);
-                currentMinute = calendar.get(Calendar.MINUTE);
+//        chooseTime3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                calendar = Calendar.getInstance();
+//                currentHour = calendar.get(Calendar.HOUR_OF_DAY);
+//                currentMinute = calendar.get(Calendar.MINUTE);
+//
+//                timePickerDialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
+//                    @Override
+//                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
+//                        // if (hourOfDay >= 12) {
+//                        //     amPm = "PM";
+//                        // } else {
+//                        //     amPm = "AM";
+//                        // }
+//                        chooseTime3.setText(String.format("%02d:%02d", hourOfDay, minutes) );
+//                        savePreferences9("storedName3", chooseTime3.getText().toString());
+//
+//                        antaresHTTPAPI.storeDataofDevice(28, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu5", String.valueOf(hourOfDay));
+//                        antaresHTTPAPI.storeDataofDevice(29, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu6", String.valueOf(minutes));
+//
+//                    }
+//
+//                }, currentHour, currentMinute, false);
+//
+//                timePickerDialog.show();
+//                // savePreferences("storedName", chooseTime.getText().toString());
+//                //  waktu = Integer.toString(chooseTime);
+//                //waktu2 = new Integer(currentMinute).toString();
+//            }
+//        });
 
-                timePickerDialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
-                        // if (hourOfDay >= 12) {
-                        //     amPm = "PM";
-                        // } else {
-                        //     amPm = "AM";
-                        // }
-                        chooseTime4.setText(String.format("%02d:%02d", hourOfDay, minutes) );
-                        savePreferences10("storedName4", chooseTime4.getText().toString());
 
-                        antaresHTTPAPI.storeDataofDevice(32, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu7", String.valueOf(hourOfDay));
-                        antaresHTTPAPI.storeDataofDevice(33, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu8", String.valueOf(minutes));
 
-                    }
-
-                }, currentHour, currentMinute, false);
-
-                timePickerDialog.show();
-                // savePreferences("storedName", chooseTime.getText().toString());
-                //  waktu = Integer.toString(chooseTime);
-                //waktu2 = new Integer(currentMinute).toString();
-            }
-        });
+//        chooseTime4.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                calendar = Calendar.getInstance();
+//                currentHour = calendar.get(Calendar.HOUR_OF_DAY);
+//                currentMinute = calendar.get(Calendar.MINUTE);
+//
+//                timePickerDialog = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
+//                    @Override
+//                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
+//                        // if (hourOfDay >= 12) {
+//                        //     amPm = "PM";
+//                        // } else {
+//                        //     amPm = "AM";
+//                        // }
+//                        chooseTime4.setText(String.format("%02d:%02d", hourOfDay, minutes) );
+//                        savePreferences10("storedName4", chooseTime4.getText().toString());
+//
+//                        antaresHTTPAPI.storeDataofDevice(32, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu7", String.valueOf(hourOfDay));
+//                        antaresHTTPAPI.storeDataofDevice(33, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu8", String.valueOf(minutes));
+//
+//                    }
+//
+//                }, currentHour, currentMinute, false);
+//
+//                timePickerDialog.show();
+//                // savePreferences("storedName", chooseTime.getText().toString());
+//                //  waktu = Integer.toString(chooseTime);
+//                //waktu2 = new Integer(currentMinute).toString();
+//            }
+//        });
 
 
 
@@ -511,8 +511,6 @@ public class Tab3Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
         editor.putString(key, value);
         editor.commit();
     }
-
-
 
     private void loadSavedPreferences8() {
         SharedPreferences sharedPreferences = PreferenceManager

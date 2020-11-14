@@ -32,7 +32,7 @@ public class Fragment4 extends Fragment implements AntaresHTTPAPI.OnResponseList
 
     ToggleButton toggleButton10;
     ToggleButton toggleButton11;
-    ToggleButton toggleButton12;
+//    ToggleButton toggleButton12;
 
 
     // private String TAGG;
@@ -46,12 +46,12 @@ public class Fragment4 extends Fragment implements AntaresHTTPAPI.OnResponseList
 
         Button btnFragment4 = (Button) view.findViewById(R.id.btnFragment4);
         Button btnFragment5 = (Button) view.findViewById(R.id.btnFragment5);
-        Button btnFragment6 = (Button) view.findViewById(R.id.btnFragment6);
+//        Button btnFragment6 = (Button) view.findViewById(R.id.btnFragment6);
 
 
         toggleButton10 = (ToggleButton) view.findViewById(R.id.toggleButton10);
         toggleButton11 = (ToggleButton) view.findViewById(R.id.toggleButton11);
-        toggleButton12 = (ToggleButton) view.findViewById(R.id.toggleButton12);
+//        toggleButton12 = (ToggleButton) view.findViewById(R.id.toggleButton12);
         //TAGG = this.getClass().getSimpleName();
 
 
@@ -60,7 +60,7 @@ public class Fragment4 extends Fragment implements AntaresHTTPAPI.OnResponseList
 
         loadSavedPreferences11();
         loadSavedPreferences12();
-        loadSavedPreferences13();
+//        loadSavedPreferences13();
 
 
         btnFragment4.setOnClickListener(new View.OnClickListener() {
@@ -76,19 +76,19 @@ public class Fragment4 extends Fragment implements AntaresHTTPAPI.OnResponseList
             @Override
             public void onClick(View v) {
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.continuous_fragment, new Tab2Fragment());
-                fr.commit();
-            }
-        });
-
-        btnFragment6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction fr = getFragmentManager().beginTransaction();
                 fr.replace(R.id.continuous_fragment, new Tab3Fragment());
                 fr.commit();
             }
         });
+
+//        btnFragment6.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                FragmentTransaction fr = getFragmentManager().beginTransaction();
+//                fr.replace(R.id.continuous_fragment, new Tab3Fragment());
+//                fr.commit();
+//            }
+//        });
 
 
         toggleButton10.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -129,23 +129,23 @@ public class Fragment4 extends Fragment implements AntaresHTTPAPI.OnResponseList
         });
 
 
-        toggleButton12.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                //SharedPreferences preferences = getSharedPreferences;
-                if (isChecked) {
-
-                     antaresHTTPAPI.storeDataofDevice(41, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "StatusJadwal", "41"); // The toggle is enabled
-                    //antaresHTTPAPI.getLatestDataofDevice(22, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu"); // The toggle is enabled
-
-
-                } else {
-                     antaresHTTPAPI.storeDataofDevice(42, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "StatusJadwal", "42");// The toggle is disabled
-                }
-                savePreferences13("CheckBox_Value13", toggleButton12.isChecked());
-            }
-        });
+//        toggleButton12.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//
+//                //SharedPreferences preferences = getSharedPreferences;
+//                if (isChecked) {
+//
+//                     antaresHTTPAPI.storeDataofDevice(41, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "StatusJadwal", "41"); // The toggle is enabled
+//                    //antaresHTTPAPI.getLatestDataofDevice(22, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu"); // The toggle is enabled
+//
+//
+//                } else {
+//                     antaresHTTPAPI.storeDataofDevice(42, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "StatusJadwal", "42");// The toggle is disabled
+//                }
+//                savePreferences13("CheckBox_Value13", toggleButton12.isChecked());
+//            }
+//        });
 
 
         return view;
@@ -182,18 +182,18 @@ public class Fragment4 extends Fragment implements AntaresHTTPAPI.OnResponseList
     }
 
 
-    private void loadSavedPreferences13() {
-        SharedPreferences sharedPreferences = PreferenceManager
-                .getDefaultSharedPreferences(getActivity());
-        boolean checkBoxValue13 = sharedPreferences.getBoolean("CheckBox_Value13", false);
-        if (checkBoxValue13) {
-            toggleButton12.setChecked(true);
-        } else {
-            toggleButton12.setChecked(false);
-        }
-
-
-    }
+//    private void loadSavedPreferences13() {
+//        SharedPreferences sharedPreferences = PreferenceManager
+//                .getDefaultSharedPreferences(getActivity());
+//        boolean checkBoxValue13 = sharedPreferences.getBoolean("CheckBox_Value13", false);
+//        if (checkBoxValue13) {
+//            toggleButton12.setChecked(true);
+//        } else {
+//            toggleButton12.setChecked(false);
+//        }
+//
+//
+//    }
 
 
 

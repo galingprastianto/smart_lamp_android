@@ -126,8 +126,8 @@ public class Tab1Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
         toggleButton4 = (ToggleButton) view.findViewById(R.id.toggleButton4);
         toggleButton6 = (ToggleButton) view.findViewById(R.id.toggleButton6);
 
-        textView14 = (TextView) view.findViewById(R.id.textView14);
-        textView16 = (TextView) view.findViewById(R.id.textView16);
+//        textView14 = (TextView) view.findViewById(R.id.textView14);
+//        textView16 = (TextView) view.findViewById(R.id.textView16);
 
 
         TAGG = this.getClass().getSimpleName();
