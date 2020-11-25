@@ -30,6 +30,8 @@ import android.view.View.OnClickListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -145,9 +147,6 @@ public class Tab1Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
 
 
 
-
-
-
         buttonback1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -164,7 +163,7 @@ public class Tab1Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
                 new Timer().scheduleAtFixedRate(new TimerTask() {
                     @Override
                     public void run() {
-                        antaresHTTPAPI.getLatestDataofDevice(30, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "SensorLDR");
+                        antaresHTTPAPI.getLatestDataofDevice(30, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "HomeAutomationHome", "SensorLDR");
                     }
                 }, 0, 60000);
             }
@@ -179,8 +178,10 @@ public class Tab1Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
                 if (isChecked) {
                   //  startTime = SystemClock.uptimeMillis();
                   //  customHandler.postDelayed(updateTimerThread,0);
+                    Date currentTime = new Date();
+                    long timeMilli = currentTime.getTime();
 
-                    antaresHTTPAPI.storeDataofDevice(2, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "RCSensing", "2"); // The toggle is enabled
+                    antaresHTTPAPI.storeDataofDevice(2, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "SmartLampSkuy", "LampuDalam", "{\\\"Fitur\\\":\\\"Manual\\\",\\\"Condition\\\":\\\"ON\\\",\\\"Time\\\":\\\"" + timeMilli +"\\\"}"); // The toggle is enabled
                     //antaresHTTPAPI.getLatestDataofDevice(22, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu"); // The toggle is enabled
                   //  startTimee = SystemClock.uptimeMillis();
                   //  customHandler2.postDelayed(updateTimerThread2,0);
@@ -192,8 +193,9 @@ public class Tab1Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
 
                   //  timeswapBufff+= timeInMillisecondss;
                   //  customHandler2.removeCallbacks(updateTimerThread2);
-
-                    antaresHTTPAPI.storeDataofDevice(3, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "RCSensing", "3");// The toggle is disabled
+                    Date currentTime = new Date();
+                    long timeMilli = currentTime.getTime();
+                    antaresHTTPAPI.storeDataofDevice(3, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "SmartLampSkuy", "LampuDalam", "{\\\"Fitur\\\":\\\"Manual\\\",\\\"Condition\\\":\\\"OFF\\\", \\\"Time\\\":\\\"" + timeMilli +"\\\"}");// The toggle is disabled
 
 
                 }
@@ -207,10 +209,14 @@ public class Tab1Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    antaresHTTPAPI.storeDataofDevice(4, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "RCJadwalWaktu", "4"); // The toggle is enabled
+                    Date currentTime = new Date();
+                    long timeMilli = currentTime.getTime();
+                    antaresHTTPAPI.storeDataofDevice(4, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "SmartLampSkuy", "LampuLuar", "{\\\"Fitur\\\":\\\"Manual\\\",\\\"Condition\\\":\\\"ON\\\", \\\"Time\\\":\\\"" + timeMilli +"\\\"}"); // The toggle is enabled
                     //antaresHTTPAPI.getLatestDataofDevice(22, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu"); // The toggle is enabled
                 } else {
-                    antaresHTTPAPI.storeDataofDevice(5, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "RCJadwalWaktu", "5");// The toggle is disabled
+                    Date currentTime = new Date();
+                    long timeMilli = currentTime.getTime();
+                    antaresHTTPAPI.storeDataofDevice(5, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "SmartLampSkuy", "LampuLuar", "{\\\"Fitur\\\":\\\"Manual\\\",\\\"Condition\\\":\\\"OFF\\\", \\\"Time\\\":\\\"" + timeMilli +"\\\"}");// The toggle is disabled
                 }
                 savePreferences2("CheckBox_Value2", toggleButton6.isChecked());
             }

@@ -186,7 +186,7 @@ public class Tab3Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
                 new Timer().scheduleAtFixedRate(new TimerTask() {
                     @Override
                     public void run() {
-                        antaresHTTPAPI.getLatestDataofDevice(31, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "SensorLDR");
+                        antaresHTTPAPI.getLatestDataofDevice(31, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "HomeAutomationHome", "SensorLDR");
                     }
                 }, 0, 60000);
          //       startTimee = SystemClock.uptimeMillis();
@@ -206,7 +206,7 @@ public class Tab3Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
 
 
 
-                    antaresHTTPAPI.storeDataofDevice(22, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "RCSensing", "22"); // The toggle is enabled
+                    antaresHTTPAPI.storeDataofDevice(22, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "SmartLampSkuy", "Otomatis1", "{\\\"Fitur\\\":\\\"Behavior\\\",\\\"Condition\\\":\\\"ON\\\"}"); // The toggle is enabled
                     //antaresHTTPAPI.getLatestDataofDevice(22, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu"); // The toggle is enabled
 
 
@@ -218,7 +218,7 @@ public class Tab3Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
            //         timeswapBufff+= timeInMillisecondss;
            //         customHandler2.removeCallbacks(updateTimerThread2);
 
-                    antaresHTTPAPI.storeDataofDevice(23, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "RCSensing", "23");// The toggle is disabled
+                    antaresHTTPAPI.storeDataofDevice(23, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "SmartLampSkuy", "Otomatis1", "{\\\"Fitur\\\":\\\"Behavior\\\",\\\"Condition\\\":\\\"OFF\\\"}");// The toggle is disabled
                 }
                 savePreferences5("CheckBox_Value5", toggleButton7.isChecked());
             }
@@ -229,10 +229,10 @@ public class Tab3Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    antaresHTTPAPI.storeDataofDevice(16, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "RCJadwalWaktu", "16"); // The toggle is enabled
+                    antaresHTTPAPI.storeDataofDevice(16, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "SmartLampSkuy", "Otomatis2", "{\\\"Fitur\\\":\\\"Behavior\\\",\\\"Condition\\\":\\\"ON\\\"}"); // The toggle is enabled
                     //antaresHTTPAPI.getLatestDataofDevice(22, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu"); // The toggle is enabled
                 } else {
-                    antaresHTTPAPI.storeDataofDevice(17, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "RCJadwalWaktu", "17");// The toggle is disabled
+                    antaresHTTPAPI.storeDataofDevice(17, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "SmartLampSkuy", "Otomatis2", "{\\\"Fitur\\\":\\\"Behavior\\\",\\\"Condition\\\":\\\"OFF\\\"}");// The toggle is disabled
                 }
                 savePreferences6("CheckBox_Value6", toggleButton8.isChecked());
             }

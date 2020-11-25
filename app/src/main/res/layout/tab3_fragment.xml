@@ -96,7 +96,7 @@
                         android:id="@+id/toggleButton7"
                         android:layout_width="81dp"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="125dp"
+                        android:layout_marginLeft="75dp"
                         android:gravity="center"
                         android:text="ToggleButton" />
 
@@ -159,7 +159,7 @@
                         android:id="@+id/toggleButton8"
                         android:layout_width="80dp"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="125dp"
+                        android:layout_marginStart="92dp"
                         android:gravity="center"
                         android:text="ToggleButton" />
 

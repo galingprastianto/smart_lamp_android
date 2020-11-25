@@ -98,12 +98,12 @@ public class Fragment4 extends Fragment implements AntaresHTTPAPI.OnResponseList
                 //SharedPreferences preferences = getSharedPreferences;
                 if (isChecked) {
 
-                     antaresHTTPAPI.storeDataofDevice(37, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "StatusRC", "37"); // The toggle is enabled
+                     antaresHTTPAPI.storeDataofDevice(37, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "HomeAutomationHome", "StatusRC", "37"); // The toggle is enabled
                     //antaresHTTPAPI.getLatestDataofDevice(22, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu"); // The toggle is enabled
 
 
                 } else {
-                    antaresHTTPAPI.storeDataofDevice(38, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "StatusRC", "38");// The toggle is disabled
+                    antaresHTTPAPI.storeDataofDevice(38, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "HomeAutomationHome", "StatusRC", "38");// The toggle is disabled
                 }
                 savePreferences11("CheckBox_Value11", toggleButton10.isChecked());
             }
@@ -117,12 +117,12 @@ public class Fragment4 extends Fragment implements AntaresHTTPAPI.OnResponseList
                 //SharedPreferences preferences = getSharedPreferences;
                 if (isChecked) {
 
-                      antaresHTTPAPI.storeDataofDevice(39, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "StatusSensing", "39"); // The toggle is enabled
+                      antaresHTTPAPI.storeDataofDevice(39, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "HomeAutomationHome", "StatusSensing", "39"); // The toggle is enabled
                     //antaresHTTPAPI.getLatestDataofDevice(22, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu"); // The toggle is enabled
 
 
                 } else {
-                     antaresHTTPAPI.storeDataofDevice(40, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "StatusSensing", "40");// The toggle is disabled
+                     antaresHTTPAPI.storeDataofDevice(40, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "HomeAutomationHome", "StatusSensing", "40");// The toggle is disabled
                 }
                 savePreferences12("CheckBox_Value12", toggleButton11.isChecked());
             }
