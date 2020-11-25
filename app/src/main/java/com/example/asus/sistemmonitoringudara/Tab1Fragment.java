@@ -336,4 +336,11 @@ public class Tab1Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
 
 
     }
+
+    @Override
+    public void onDestroyView() {
+        Log.d("Check_Closed", "Closed");
+
+        super.onDestroyView();
+    }
 }

@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,10 +16,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 import android.util.Log;
 
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import id.co.telkom.iot.AntaresHTTPAPI;
 import id.co.telkom.iot.AntaresResponse;
@@ -29,9 +37,18 @@ public class Fragment4 extends Fragment implements AntaresHTTPAPI.OnResponseList
 
     private AntaresHTTPAPI antaresHTTPAPI;
 
+    private Handler antaresHandler = new Handler();
 
     ToggleButton toggleButton10;
     ToggleButton toggleButton11;
+
+    TextView antaresInfoText;
+
+    private String dataDevice = "Loading";
+
+    private String dataToTextView;
+
+    private String testString = "Test";
 //    ToggleButton toggleButton12;
 
 
@@ -54,13 +71,17 @@ public class Fragment4 extends Fragment implements AntaresHTTPAPI.OnResponseList
 //        toggleButton12 = (ToggleButton) view.findViewById(R.id.toggleButton12);
         //TAGG = this.getClass().getSimpleName();
 
+        antaresInfoText = (TextView) view.findViewById(R.id.status_antares);
+
 
         antaresHTTPAPI = new AntaresHTTPAPI();
-          antaresHTTPAPI.addListener(this);
+        antaresHTTPAPI.addListener(this);
 
         loadSavedPreferences11();
         loadSavedPreferences12();
 //        loadSavedPreferences13();
+
+        antaresDataCheck.run();
 
 
         btnFragment4.setOnClickListener(new View.OnClickListener() {
@@ -222,10 +243,60 @@ public class Fragment4 extends Fragment implements AntaresHTTPAPI.OnResponseList
         editor.commit();
     }
 
+    public TextView getAntaresInfoText() {
+        return antaresInfoText;
+    }
+
+    public void setAntaresInfoText(TextView antaresInfoText) {
+        this.antaresInfoText = antaresInfoText;
+    }
+
+    private final Runnable antaresDataCheck = new Runnable() {
+        @Override
+        public void run() {
+            antaresHTTPAPI.getLatestDataofDevice("38fa9dc94027a9e3:ad7eed0d8b228eb8","SmartLampSkuy","LampuDalam");
+
+            antaresHandler.postDelayed(this,5000);
+        }
+    };
+
     @Override
     public void onResponse(AntaresResponse antaresResponse) {
+        // --- Cetak hasil yang didapat dari ANTARES ke System Log --- //
+        Log.d("Test",antaresResponse.toString());
 
+        final String date = DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
+        String condition = "";
+        String mode = "";
 
+        try {
+            JSONObject body = new JSONObject(antaresResponse.getBody());
+            dataDevice = body.getJSONObject("m2m:cin").getString("con");
+            JSONObject jsonObject = new JSONObject(dataDevice);
+
+            if(jsonObject.has("Condition")){
+                condition = jsonObject.getString("Condition");
+            }
+
+            if (jsonObject.has("Fitur")) {
+                mode = jsonObject.getString("Fitur");
+            }
+
+            final String finalMode = mode;
+            final String finalCondition = condition;
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    antaresInfoText.setText("Mode :" + finalMode + "\n" + "Time :" + date +"\nCondition :" + finalCondition);
+                }
+            });
+
+//            getAntaresInfoText().setText("Mode :" + mode + "\n" + "Time :" + date +"\nCondition :" + condition);
+
+            Log.d("Test", jsonObject.getString("Time"));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-
+    }
 }
