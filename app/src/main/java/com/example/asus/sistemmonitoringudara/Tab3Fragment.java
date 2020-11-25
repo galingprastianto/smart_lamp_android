@@ -130,7 +130,7 @@ public class Tab3Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
 
         Button buttonback3 = (Button)view.findViewById(R.id.buttonback2);
 
-        button3 = (Button) view.findViewById(R.id.button3);
+//        button3 = (Button) view.findViewById(R.id.button3);
 
 
 
@@ -178,23 +178,23 @@ public class Tab3Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
         });
 
 
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-         //       startTime = SystemClock.uptimeMillis();
-         //       customHandler.postDelayed(updateTimerThread,0);
-                new Timer().scheduleAtFixedRate(new TimerTask() {
-                    @Override
-                    public void run() {
-                        antaresHTTPAPI.getLatestDataofDevice(31, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "HomeAutomationHome", "SensorLDR");
-                    }
-                }, 0, 60000);
-         //       startTimee = SystemClock.uptimeMillis();
-         //       customHandler2.postDelayed(updateTimerThread2,0);
-
-
-            }
-        });
+//        button3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//         //       startTime = SystemClock.uptimeMillis();
+//         //       customHandler.postDelayed(updateTimerThread,0);
+//                new Timer().scheduleAtFixedRate(new TimerTask() {
+//                    @Override
+//                    public void run() {
+//                        antaresHTTPAPI.getLatestDataofDevice(31, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "HomeAutomationHome", "SensorLDR");
+//                    }
+//                }, 0, 60000);
+//         //       startTimee = SystemClock.uptimeMillis();
+//         //       customHandler2.postDelayed(updateTimerThread2,0);
+//
+//
+//            }
+//        });
 
 
 

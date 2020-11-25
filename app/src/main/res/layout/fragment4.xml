@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_dark"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment4">
 
@@ -16,7 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="560dp"
             android:layout_marginBottom="24dp"
-            android:background="@android:color/holo_blue_dark"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="0dp">
@@ -62,29 +62,19 @@
 
                         <TextView
                             android:id="@+id/textView"
-                            android:layout_width="wrap_content"
+                            android:layout_width="150dp"
                             android:layout_height="match_parent"
                             android:gravity="center_vertical"
-                            android:text="Remote Control"
+                            android:text="@string/lamp_1"
                             android:textColor="@android:color/white"
                             android:textSize="20sp"
                             android:textStyle="bold" />
-
-
-                        <ToggleButton
-                            android:id="@+id/toggleButton10"
-                            android:layout_width="80dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="30dp"
-                            android:gravity="center"
-                            android:text="ToggleButton" />
-
 
                         <Button
                             android:id="@+id/btnFragment4"
                             android:layout_width="74dp"
                             android:layout_height="match_parent"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginLeft="80dp"
                             android:text="Next" />
 
 
@@ -126,65 +116,24 @@
 
                         <TextView
                             android:id="@+id/textView2"
-                            android:layout_width="wrap_content"
+                            android:layout_width="150dp"
                             android:layout_height="match_parent"
                             android:gravity="center_vertical"
-                            android:text="@string/kebiaasaan_ruangan_title"
+                            android:text="@string/lamp_2"
                             android:textColor="@android:color/white"
-                            android:textSize="17sp"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
-
-                        <ToggleButton
-                            android:id="@+id/toggleButton11"
-                            android:layout_width="80dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="20dp"
-                            android:gravity="center"
-                            android:text="ToggleButton" />
 
                         <Button
                             android:id="@+id/btnFragment5"
                             android:layout_width="74dp"
                             android:layout_height="match_parent"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginLeft="80dp"
                             android:text="Next" />
 
 
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/holo_blue_light"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal"
-                android:layout_marginTop="50dp"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="43dp">
-
-                <ScrollView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="20dp"
-                    android:fillViewport="true">
-
-                    <TextView
-                        android:id="@+id/status_antares"
-                        android:layout_width="fill_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/cardview_light_background"
-                        android:lines="8"
-                        android:scrollHorizontally="false"
-                        android:scrollbars="vertical"
-                        android:textSize="15sp"/>
-
-                </ScrollView>
             </LinearLayout>
 
 
@@ -241,10 +190,10 @@
 <!--                </android.support.v7.widget.CardView>-->
 <!--            </LinearLayout>-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="310dp"
-                android:orientation="horizontal"></LinearLayout>
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="310dp"-->
+<!--                android:orientation="horizontal"></LinearLayout>-->
 
         </LinearLayout>
     </ScrollView>

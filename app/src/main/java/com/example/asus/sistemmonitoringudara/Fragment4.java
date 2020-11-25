@@ -42,13 +42,14 @@ public class Fragment4 extends Fragment implements AntaresHTTPAPI.OnResponseList
     ToggleButton toggleButton10;
     ToggleButton toggleButton11;
 
-    TextView antaresInfoText;
-
     private String dataDevice = "Loading";
 
     private String dataToTextView;
 
     private String testString = "Test";
+
+    String condition = "";
+    String mode = "";
 //    ToggleButton toggleButton12;
 
 
@@ -66,22 +67,18 @@ public class Fragment4 extends Fragment implements AntaresHTTPAPI.OnResponseList
 //        Button btnFragment6 = (Button) view.findViewById(R.id.btnFragment6);
 
 
-        toggleButton10 = (ToggleButton) view.findViewById(R.id.toggleButton10);
-        toggleButton11 = (ToggleButton) view.findViewById(R.id.toggleButton11);
+//        toggleButton10 = (ToggleButton) view.findViewById(R.id.toggleButton10);
+//        toggleButton11 = (ToggleButton) view.findViewById(R.id.toggleButton11);
 //        toggleButton12 = (ToggleButton) view.findViewById(R.id.toggleButton12);
         //TAGG = this.getClass().getSimpleName();
-
-        antaresInfoText = (TextView) view.findViewById(R.id.status_antares);
 
 
         antaresHTTPAPI = new AntaresHTTPAPI();
         antaresHTTPAPI.addListener(this);
 
-        loadSavedPreferences11();
-        loadSavedPreferences12();
+//        loadSavedPreferences11();
+//        loadSavedPreferences12();
 //        loadSavedPreferences13();
-
-        antaresDataCheck.run();
 
 
         btnFragment4.setOnClickListener(new View.OnClickListener() {
@@ -112,42 +109,42 @@ public class Fragment4 extends Fragment implements AntaresHTTPAPI.OnResponseList
 //        });
 
 
-        toggleButton10.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                //SharedPreferences preferences = getSharedPreferences;
-                if (isChecked) {
-
-                     antaresHTTPAPI.storeDataofDevice(37, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "HomeAutomationHome", "StatusRC", "37"); // The toggle is enabled
-                    //antaresHTTPAPI.getLatestDataofDevice(22, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu"); // The toggle is enabled
-
-
-                } else {
-                    antaresHTTPAPI.storeDataofDevice(38, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "HomeAutomationHome", "StatusRC", "38");// The toggle is disabled
-                }
-                savePreferences11("CheckBox_Value11", toggleButton10.isChecked());
-            }
-        });
-
-
-        toggleButton11.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                //SharedPreferences preferences = getSharedPreferences;
-                if (isChecked) {
-
-                      antaresHTTPAPI.storeDataofDevice(39, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "HomeAutomationHome", "StatusSensing", "39"); // The toggle is enabled
-                    //antaresHTTPAPI.getLatestDataofDevice(22, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu"); // The toggle is enabled
-
-
-                } else {
-                     antaresHTTPAPI.storeDataofDevice(40, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "HomeAutomationHome", "StatusSensing", "40");// The toggle is disabled
-                }
-                savePreferences12("CheckBox_Value12", toggleButton11.isChecked());
-            }
-        });
+//        toggleButton10.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//
+//                //SharedPreferences preferences = getSharedPreferences;
+//                if (isChecked) {
+//
+//                     antaresHTTPAPI.storeDataofDevice(37, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "HomeAutomationHome", "StatusRC", "37"); // The toggle is enabled
+//                    //antaresHTTPAPI.getLatestDataofDevice(22, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu"); // The toggle is enabled
+//
+//
+//                } else {
+//                    antaresHTTPAPI.storeDataofDevice(38, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "HomeAutomationHome", "StatusRC", "38");// The toggle is disabled
+//                }
+//                savePreferences11("CheckBox_Value11", toggleButton10.isChecked());
+//            }
+//        });
+//
+//
+//        toggleButton11.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//
+//                //SharedPreferences preferences = getSharedPreferences;
+//                if (isChecked) {
+//
+//                      antaresHTTPAPI.storeDataofDevice(39, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "HomeAutomationHome", "StatusSensing", "39"); // The toggle is enabled
+//                    //antaresHTTPAPI.getLatestDataofDevice(22, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu"); // The toggle is enabled
+//
+//
+//                } else {
+//                     antaresHTTPAPI.storeDataofDevice(40, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "HomeAutomationHome", "StatusSensing", "40");// The toggle is disabled
+//                }
+//                savePreferences12("CheckBox_Value12", toggleButton11.isChecked());
+//            }
+//        });
 
 
 //        toggleButton12.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -243,60 +240,8 @@ public class Fragment4 extends Fragment implements AntaresHTTPAPI.OnResponseList
         editor.commit();
     }
 
-    public TextView getAntaresInfoText() {
-        return antaresInfoText;
-    }
-
-    public void setAntaresInfoText(TextView antaresInfoText) {
-        this.antaresInfoText = antaresInfoText;
-    }
-
-    private final Runnable antaresDataCheck = new Runnable() {
-        @Override
-        public void run() {
-            antaresHTTPAPI.getLatestDataofDevice("38fa9dc94027a9e3:ad7eed0d8b228eb8","SmartLampSkuy","LampuDalam");
-
-            antaresHandler.postDelayed(this,5000);
-        }
-    };
-
     @Override
     public void onResponse(AntaresResponse antaresResponse) {
-        // --- Cetak hasil yang didapat dari ANTARES ke System Log --- //
-        Log.d("Test",antaresResponse.toString());
 
-        final String date = DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
-        String condition = "";
-        String mode = "";
-
-        try {
-            JSONObject body = new JSONObject(antaresResponse.getBody());
-            dataDevice = body.getJSONObject("m2m:cin").getString("con");
-            JSONObject jsonObject = new JSONObject(dataDevice);
-
-            if(jsonObject.has("Condition")){
-                condition = jsonObject.getString("Condition");
-            }
-
-            if (jsonObject.has("Fitur")) {
-                mode = jsonObject.getString("Fitur");
-            }
-
-            final String finalMode = mode;
-            final String finalCondition = condition;
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    antaresInfoText.setText("Mode :" + finalMode + "\n" + "Time :" + date +"\nCondition :" + finalCondition);
-                }
-            });
-
-//            getAntaresInfoText().setText("Mode :" + mode + "\n" + "Time :" + date +"\nCondition :" + condition);
-
-            Log.d("Test", jsonObject.getString("Time"));
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
     }
 }

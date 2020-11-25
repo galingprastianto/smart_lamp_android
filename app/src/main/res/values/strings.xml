@@ -7,4 +7,7 @@
     <string name="lamp_1">Lampu Dalam</string>
     <string name="lamp_2">Lampu Luar</string>
     <string name="room_behaviour">Kebiasaan Ruangan</string>
+    <string name="remote_control">Remote Control</string>
+    <string name="off">OFF</string>
+    <string name="on">ON</string>
 </resources>
