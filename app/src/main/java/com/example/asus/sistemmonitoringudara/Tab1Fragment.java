@@ -226,12 +226,12 @@ public class Tab1Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
                 if (isChecked) {
                     Date currentTime = new Date();
                     long timeMilli = currentTime.getTime();
-                    antaresHTTPAPI.storeDataofDevice(4, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "SmartLampSkuy", "LampuLuar", "{\\\"Fitur\\\":\\\"Behavior\\\",\\\"Condition\\\":\\\"ON\\\", \\\"Time\\\":\\\"" + timeMilli +"\\\"}"); // The toggle is enabled
+                    antaresHTTPAPI.storeDataofDevice(4, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "SmartLampSkuy", "LampuDalam", "{\\\"Fitur\\\":\\\"Behavior\\\",\\\"Condition\\\":\\\"ON\\\", \\\"Time\\\":\\\"" + timeMilli +"\\\"}"); // The toggle is enabled
                     //antaresHTTPAPI.getLatestDataofDevice(22, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu"); // The toggle is enabled
                 } else {
                     Date currentTime = new Date();
                     long timeMilli = currentTime.getTime();
-                    antaresHTTPAPI.storeDataofDevice(5, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "SmartLampSkuy", "LampuLuar", "{\\\"Fitur\\\":\\\"Behavior\\\",\\\"Condition\\\":\\\"OFF\\\", \\\"Time\\\":\\\"" + timeMilli +"\\\"}");// The toggle is disabled
+                    antaresHTTPAPI.storeDataofDevice(5, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "SmartLampSkuy", "LampuDalam", "{\\\"Fitur\\\":\\\"Behavior\\\",\\\"Condition\\\":\\\"OFF\\\", \\\"Time\\\":\\\"" + timeMilli +"\\\"}");// The toggle is disabled
                 }
                 savePreferences2("CheckBox_Value2", toggleButton6.isChecked());
             }

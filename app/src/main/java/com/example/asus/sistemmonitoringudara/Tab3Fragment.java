@@ -21,6 +21,8 @@ import android.util.Log;
 import android.app.TimePickerDialog;
 import android.widget.EditText;
 import android.widget.TimePicker;
+
+import java.text.DateFormat;
 import java.util.Calendar;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -58,7 +60,16 @@ public class Tab3Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
     LinearLayout container2;
 */
 
+    private Handler antaresHandler = new Handler();
 
+    private String dataDevice = "Loading";
+
+    private String dataToTextView;
+
+    private String testString = "Test";
+
+    String condition = "";
+    String mode = "";
 
     ToggleButton toggleButton7;
     ToggleButton toggleButton8;
@@ -68,6 +79,8 @@ public class Tab3Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
     EditText chooseTime2;
     EditText chooseTime3;
     EditText chooseTime4;
+
+    TextView antaresInfoText;
 
     TimePickerDialog timePickerDialog;
     Calendar calendar;
@@ -142,6 +155,8 @@ public class Tab3Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
 
         toggleButton7 = (ToggleButton) view.findViewById(R.id.toggleButton7);
         toggleButton8 = (ToggleButton) view.findViewById(R.id.toggleButton8);
+
+        antaresInfoText = (TextView) view.findViewById(R.id.status_antares_lampu_luar);
 //        toggleButton9 = (ToggleButton) view.findViewById(R.id.toggleButton9);
 //
 //        textView23 = (TextView) view.findViewById(R.id.textView23);
@@ -157,8 +172,10 @@ public class Tab3Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
         antaresHTTPAPI = new AntaresHTTPAPI();
         antaresHTTPAPI.addListener(this);
 
-        loadSavedPreferences5();
-        loadSavedPreferences6();
+        antaresDataCheck.run();
+
+//        loadSavedPreferences5();
+//        loadSavedPreferences6();
 
 //        loadSavedPreferences7();
 //        loadSavedPreferences8();
@@ -206,7 +223,7 @@ public class Tab3Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
 
 
 
-                    antaresHTTPAPI.storeDataofDevice(22, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "SmartLampSkuy", "Otomatis1", "{\\\"Fitur\\\":\\\"Behavior\\\",\\\"Condition\\\":\\\"ON\\\"}"); // The toggle is enabled
+                    antaresHTTPAPI.storeDataofDevice(22, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "SmartLampSkuy", "LampuLuar", "{\\\"Fitur\\\":\\\"Manual\\\",\\\"Condition\\\":\\\"ON\\\"}"); // The toggle is enabled
                     //antaresHTTPAPI.getLatestDataofDevice(22, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu"); // The toggle is enabled
 
 
@@ -218,7 +235,7 @@ public class Tab3Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
            //         timeswapBufff+= timeInMillisecondss;
            //         customHandler2.removeCallbacks(updateTimerThread2);
 
-                    antaresHTTPAPI.storeDataofDevice(23, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "SmartLampSkuy", "Otomatis1", "{\\\"Fitur\\\":\\\"Behavior\\\",\\\"Condition\\\":\\\"OFF\\\"}");// The toggle is disabled
+                    antaresHTTPAPI.storeDataofDevice(23, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "SmartLampSkuy", "LampuLuar", "{\\\"Fitur\\\":\\\"Manual\\\",\\\"Condition\\\":\\\"OFF\\\"}");// The toggle is disabled
                 }
                 savePreferences5("CheckBox_Value5", toggleButton7.isChecked());
             }
@@ -229,10 +246,10 @@ public class Tab3Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    antaresHTTPAPI.storeDataofDevice(16, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "SmartLampSkuy", "Otomatis2", "{\\\"Fitur\\\":\\\"Behavior\\\",\\\"Condition\\\":\\\"ON\\\"}"); // The toggle is enabled
+                    antaresHTTPAPI.storeDataofDevice(16, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "SmartLampSkuy", "LampuLuar", "{\\\"Fitur\\\":\\\"Behavior\\\",\\\"Condition\\\":\\\"ON\\\"}"); // The toggle is enabled
                     //antaresHTTPAPI.getLatestDataofDevice(22, "f7c006295a705ee2:44a74791cc28c092", "HomeAutomationHome", "JadwalWaktu"); // The toggle is enabled
                 } else {
-                    antaresHTTPAPI.storeDataofDevice(17, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "SmartLampSkuy", "Otomatis2", "{\\\"Fitur\\\":\\\"Behavior\\\",\\\"Condition\\\":\\\"OFF\\\"}");// The toggle is disabled
+                    antaresHTTPAPI.storeDataofDevice(17, "38fa9dc94027a9e3:ad7eed0d8b228eb8", "SmartLampSkuy", "LampuLuar", "{\\\"Fitur\\\":\\\"Behavior\\\",\\\"Condition\\\":\\\"OFF\\\"}");// The toggle is disabled
                 }
                 savePreferences6("CheckBox_Value6", toggleButton8.isChecked());
             }
@@ -627,63 +644,64 @@ public class Tab3Fragment extends Fragment implements AntaresHTTPAPI.OnResponseL
     }
 
 
+    private final Runnable antaresDataCheck = new Runnable() {
+        @Override
+        public void run() {
+            antaresHTTPAPI.getLatestDataofDevice("38fa9dc94027a9e3:ad7eed0d8b228eb8","SmartLampSkuy","LampuLuar");
 
+            antaresHandler.postDelayed(this,5000);
+        }
+    };
 
     @Override
     public void onResponse(AntaresResponse antaresResponse) {
+// --- Cetak hasil yang didapat dari ANTARES ke System Log --- //
+        Log.d("Test",antaresResponse.toString());
 
+        final String date = DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
+//        String condition = "";
+//        String mode = "";
 
-        String content = null;
+        try {
+            JSONObject body = new JSONObject(antaresResponse.getBody());
+            dataDevice = body.getJSONObject("m2m:cin").getString("con");
+            JSONObject jsonObject = new JSONObject(dataDevice);
 
-        //Log.d(TAG,antaresResponse.toString());
-        if (antaresResponse.getRequestCode() == 31) {
-            try {
-                content = antaresResponse.toJSON().getJSONObject("m2m:cin").getString("con");
-                JSONObject jsonObject = new JSONObject(content);
-
-/*
-                if (jsonObject.has("ArusLampu")) {
-                    final double ArusLampu = jsonObject.getDouble("ArusLampu");
-                    getActivity().runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            getTextView23().setText(Double.toString(ArusLampu));
-                            if (ArusLampu>=30){ getTextView23().setTextColor(Color.YELLOW);}
-                        }
-
-                    });
-
-                    Log.d(TAGG, Double.toString(ArusLampu));
-                }
-
-    */
-
-
-
-                if(jsonObject.has("ArusBeban")){
-                    final double ArusBeban = jsonObject.getDouble("ArusBeban");
-                    getActivity().runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            getTextView26().setText(Double.toString(ArusBeban));   //Set data to text
-                            if (ArusBeban==0){ getTextView26().setTextColor(Color.BLUE);}
-                        }
-                    });
-                    Log.d(TAG,Double.toString(ArusBeban));
-                }
-
-                Log.d(TAGG, content);
-            } catch (JSONException e) {
-                e.printStackTrace();
+            if(jsonObject.has("Condition")){
+                condition = jsonObject.getString("Condition");
             }
 
+            if (jsonObject.has("Fitur")) {
+                mode = jsonObject.getString("Fitur");
+            }
 
+            final String finalMode = mode;
+            final String finalCondition = condition;
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    antaresInfoText.setText("Mode :" + finalMode + "\n" + "Time :" + date +"\nCondition :" + finalCondition);
+                }
+            });
+
+//            getAntaresInfoText().setText("Mode :" + mode + "\n" + "Time :" + date +"\nCondition :" + condition);
+
+            Log.d("Test", jsonObject.getString("Time"));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
 
     }
 
 
+    @Override
+    public void onDestroyView() {
+        antaresHandler.removeCallbacks(antaresDataCheck);
+        Log.d("Test", "DataCheckStopped");
 
+        super.onDestroyView();
+    }
 }
 
 

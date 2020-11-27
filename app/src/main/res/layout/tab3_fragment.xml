@@ -168,6 +168,38 @@
             </android.support.v7.widget.CardView>
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_dark"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:layout_marginTop="50dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="43dp">
+
+            <ScrollView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:fillViewport="true">
+
+                <TextView
+                    android:id="@+id/status_antares_lampu_luar"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/cardview_light_background"
+                    android:scrollHorizontally="false"
+                    android:scrollbars="vertical"
+                    android:textSize="15sp"/>
+
+            </ScrollView>
+        </LinearLayout>
+
         //button
         <LinearLayout
             android:layout_width="wrap_content"
